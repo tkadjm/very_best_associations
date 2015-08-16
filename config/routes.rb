@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Routes for landing page
+  get "/", :controller => "favorites", :action => "index"
+
   # Routes for the Favorite resource:
   # CREATE
   get "/favorites/new", :controller => "favorites", :action => "new"
