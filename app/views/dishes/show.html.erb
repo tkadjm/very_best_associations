@@ -33,13 +33,13 @@
                   User
                 </label>
 
-                <input type="hidden", name="dish_id" id="dish_id", value="<%=@dish.id%>">
-
                 <select name = "user_id" class="form-control">
                   <% User.order("username ASC").each do |user| %>
                     <option value = "<%=user.id%>"><%=user.username%></option>
                   <% end %>
                 </select>
+
+                <input type="hidden", name="dish_id" id="dish_id", value="<%=@dish.id%>">
               </div>
 
               <div class="form-group">
