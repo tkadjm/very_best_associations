@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user.username = params[:username]
 
     if @user.save
-      redirect_to "/users", :notice => "User created successfully."
+      redirect_to :back, :notice => "User created successfully."
     else
       render 'new'
     end
