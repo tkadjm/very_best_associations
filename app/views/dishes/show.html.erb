@@ -5,11 +5,28 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd><%= @dish.name %></dd>
 
-      <dt>Cuisine</dt>
-      <dd><%= @dish.cuisine.name %></dd>
+    <table class="table-hover">
+      <col width = "80">
+      <col width = "80">
+      <col width = "80">
+      <col width = "80">
+      <tr><td style = "font-weight:bold">Name:</td><td><%=@dish.name%></td></tr>
+      <tr><td style = "font-weight:bold">Cuisine:</td><td><%=@dish.cuisine.name%></td></tr>
+      <tr>
+        <th>Favorites:</th>
+      </tr>
+
+      <% @dish.favorites.each do |favorite| %>
+      <tr>
+        <td></td>
+        <td style = "font-weight:bold">user:</td>
+        <td><%= favorite.user.username%></td>
+        <td style = "font-weight:bold">venue:</td>
+        <td><%= favorite.venue.name %></td>
+      </tr>
+      <% end %>
+    </table>
 
     </dl>
 
