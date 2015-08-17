@@ -4,25 +4,22 @@
 
 <div class="row">
   <div class="col-md-12">
-    <table class="table-hover">
-      <col width = "80">
-      <col width = "80">
-      <col width = "180">
-      <col width = "80">
-      <tr><td style = "font-weight:bold">Username:</td><td><%=@user.username%></td></tr>
-        <th>Favorites:</th>
-      </tr>
+    <dl class="dl-horizontal">
+      <dt>Username:</dt>
+      <dd><%=@user.username%></dd>
 
-      <% @user.favorites.each do |favorite| %>
-      <tr>
-        <td></td>
-        <td style = "font-weight:bold">dish:</td>
-        <td><%= favorite.dish.name%></td>
-        <td style = "font-weight:bold">venue:</td>
-        <td><%= favorite.venue.name %></td>
-      </tr>
-      <% end %>
-    </table>
+      <dt>Favorites:</dt>
+      <dd>
+        <ul class = "list-group"></ul>
+        <% @user.favorites.each do |favorite| %>
+          <li class="list-group-item">
+            <%=favorite.dish.name%>
+            at
+            <%=favorite.venue.name%>
+          </li>
+        <%end%>
+      </dd>
+    </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/users" class="btn btn-primary">

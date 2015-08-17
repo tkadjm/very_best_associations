@@ -5,22 +5,21 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%=@neighborhood.name%></dd>
 
-    <table class="table-hover">
-      <tr><td style = "font-weight:bold">Name:</td><td><%=@neighborhood.name%></td></tr>
-      <tr><td style = "font-weight:bold">City:</td><td><%=@neighborhood.city%></td></tr>
-      <tr>
-        <th>Venues:</th>
-      </tr>
+      <dt>City:</dt>
+      <dd><%=@neighborhood.city%></dd>
 
-      <% @neighborhood.venues.each do |venue| %>
-      <tr>
-        <td></td>
-        <td><%= venue.name %></td>
-      </tr>
-      <% end %>
-    </table>
-
+      <dt>Venues:</dt>
+      <dd>
+        <ul class = "list-group"></ul>
+        <% @neighborhood.venues.each do |venue| %>
+          <li class="list-group-item">
+            <%=venue.name%>
+          </li>
+        <%end%>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">

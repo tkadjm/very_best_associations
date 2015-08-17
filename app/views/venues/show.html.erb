@@ -5,31 +5,26 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%=@venue.name%></dd>
 
-    <table class="table-hover">
-      <col width = "120">
-      <col width = "300">
-      <col width = "80">
-      <col width = "80">
-      <tr><td style = "font-weight:bold">Name:</td><td><%= @venue.name %></td></tr>
-      <tr><td style = "font-weight:bold">Address:</td><td><%= @venue.address %></td></tr>
-      <tr><td style = "font-weight:bold">Neighborhood:</td><td><%= @venue.neighborhood.name %></td></tr>
-      <tr>
-        <th>Favorites:</th>
-      </tr>
+      <dt>Address:</dt>
+      <dd><%=@venue.address%></dd>
 
-      <% @venue.favorites.each do |favorite| %>
-      <tr>
-        <td></td>
-        <td style = "font-weight:bold">user:</td>
-        <td><%= favorite.user.username%></td>
-        <td style = "font-weight:bold">venue:</td>
-        <td><%= favorite.venue.name %></td>
-      </tr>
-      <% end %>
-    </table>
+      <dt>Neighborhood:</dt>
+      <dd><%=@venue.neighborhood.name%></dd>
 
-
+      <dt>Favorites:</dt>
+      <dd>
+        <ul class = "list-group"></ul>
+        <% @venue.favorites.each do |favorite| %>
+          <li class="list-group-item">
+            <%=favorite.dish.name%>
+            by
+            <%=favorite.user.username%>
+          </li>
+        <%end%>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">

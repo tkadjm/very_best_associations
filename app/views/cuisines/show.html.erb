@@ -5,21 +5,18 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%=@cuisine.name%></dd>
 
-    <table class="table-hover">
-      <tr><td style = "font-weight:bold">Name:</td><td><%=@cuisine.name%></td></tr>
-      <tr>
-        <th>Dishes:</th>
-      </tr>
-
-      <% @cuisine.dishes.each do |dish| %>
-      <tr>
-        <td></td>
-        <td><%= dish.name %></td>
-      </tr>
-      <% end %>
-    </table>
-
+      <dt>Dishes:</dt>
+      <dd>
+        <ul class = "list-group"></ul>
+        <% @cuisine.dishes.each do |dish| %>
+          <li class="list-group-item">
+            <%=dish.name%>
+          </li>
+        <%end%>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">
