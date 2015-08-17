@@ -18,6 +18,55 @@
             <%=favorite.venue.name%>
           </li>
         <%end%>
+
+        <li class="list-group-item">
+          <form action="/create_favorite" method="post">
+
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>">
+
+            <!-- Hidden input for user -->
+            <input type="hidden", name="user_id" id="user_id", value="<%=@user.id%>">
+
+            <!-- Input Dish -->
+            <div class="form-group">
+              <label for="dish_id" class="control-label">
+                Dish
+              </label>
+
+              <select name = "dish_id" class="form-control">
+                <% Dish.order("name ASC").each do |dish| %>
+                  <option value = "<%=dish.id%>"><%=dish.name%></option>
+                <% end %>
+              </select>
+            </div>
+
+            <!-- Input Venue -->
+            <div class="form-group">
+              <label for="venue_id" class="control-label">
+                Venue
+              </label>
+
+              <select name = "venue_id" class="form-control">
+                <% Venue.order("name ASC").each do |venue| %>
+                  <option value = "<%=venue.id%>"><%=venue.name%></option>
+                <% end %>
+              </select>
+            </div>
+
+            <!-- Label and input for notes -->
+            <div class="form-group">
+              <label for="notes" class="control-label">
+                Notes
+              </label>
+              <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"></textarea>
+            </div>
+
+            <button class="btn btn-success">
+              Create Favorite
+            </button>
+          </form>
+        </li>
       </dd>
     </dl>
 

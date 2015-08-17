@@ -4,5 +4,5 @@ class Venue < ActiveRecord::Base
   validates :neighborhood_id, :presence => true
 
   belongs_to :neighborhood
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
 end
